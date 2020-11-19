@@ -1,25 +1,3 @@
-const enemy1 = document.getElementById('enemy1')
-const enemy2 = document.getElementById('enemy2')
-const enemy3 = document.getElementById('enemy3')
-const enemy4 = document.getElementById('enemy4')
-let ghost_num = 2
-
-function selectEnemy1 () {
-    ghost_num = 1
-}
-
-function selectEnemy2 () {
-    ghost_num = 2
-}
-
-function selectEnemy3 () {
-    ghost_num = 3
-}
-
-function selectEnemy4 () {
-    ghost_num = 4
-}
-
 class Ghost {
     constructor(name, startIndex, speed) {
         this.name = name
@@ -31,25 +9,12 @@ class Ghost {
     }
 }
 
-if(ghost_num === 2) {
-    ghosts = [
-        new Ghost('blinky', 349, 250),
-        new Ghost('pinky', 377, 500)
-    ]
-} else if (ghost_num === 3) {
-    ghosts = [
-        new Ghost('blinky', 349, 250),
-        new Ghost('pinky', 377, 500),
-        new Ghost('inky',350, 300)        
-    ]
-} else if (ghost_num === 4) {
-    ghosts = [
-        new Ghost('blinky', 349, 250),
-        new Ghost('pinky', 377, 500),
-        new Ghost('inky',350, 300),
-        new Ghost('clyde',378, 500)    
-    ]
-}
+ghosts = [
+    new Ghost('blinky', 349, 250),
+    new Ghost('pinky', 377, 500),
+    new Ghost('inky',350, 300),
+    new Ghost('clyde',378, 500)    
+]
 
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
@@ -184,7 +149,7 @@ function checkForGameOver() {
 }
 // checkForWin
 function checkForWin() {
-    if(score > 274) {
+    if(score > 450) {
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
         document.removeEventListener('keyup', movePacMan)
         alert(`You Won!`)
